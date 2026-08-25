@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>hehe 💗</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Patrick+Hand&display=swap" rel="stylesheet">
+
+<style>
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    height: 100vh;
+    overflow: hidden;
+    background: #ffb6d5;
+    font-family: "Patrick Hand", cursive;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #54243b;
+}
+
+/* DOODLES */
+
+.doodle {
+    position: absolute;
+    font-size: 35px;
+    opacity: 0.75;
+    user-select: none;
+}
+
+.d1 { top: 8%; left: 8%; transform: rotate(-15deg); }
+.d2 { top: 15%; right: 10%; transform: rotate(20deg); }
+.d3 { bottom: 12%; left: 12%; transform: rotate(10deg); }
+.d4 { bottom: 8%; right: 9%; transform: rotate(-20deg); }
+.d5 { top: 45%; left: 3%; }
+.d6 { top: 50%; right: 4%; }
+
+.card {
+    position: relative;
+    z-index: 5;
+
+    width: 390px;
+    min-height: 280px;
+
+    padding: 45px 30px;
+
+    text-align: center;
+
+    background: #fff0f6;
+
+    border: 3px solid #54243b;
+    border-radius: 25px;
+
+    box-shadow: 7px 7px 0 #54243b;
+
+    animation: pop 0.5s ease;
+}
+
+@keyframes pop {
+    from {
+        transform: scale(0.7) rotate(-3deg);
+        opacity: 0;
+    }
+
+    to {
+        transform: scale(1) rotate(0);
+        opacity: 1;
+    }
+}
+
+h1 {
+    font-size: 38px;
+    margin: 5px 0 15px;
+}
+
+p {
+    font-size: 25px;
+    margin: 15px;
+}
+
+button {
+    font-family: "Patrick Hand", cursive;
+    font-size: 22px;
+
+    padding: 10px 28px;
+
+    border: 2px solid #54243b;
+    border-radius: 15px;
+
+    cursor: pointer;
+    margin: 10px;
+
+    box-shadow: 3px 3px 0 #54243b;
+}
+
+#yes,
+#yes2 {
+    background: #ff5c9d;
+    color: white;
+}
+
+#continue {
+    background: #ffd1e3;
+    color: #54243b;
+}
+
+#no,
+#no2 {
+    background: white;
+    color: #54243b;
+    position: absolute;
+}
+
+.final {
+    font-size: 43px;
+    line-height: 1.1;
+}
+
+.heart {
+    position: absolute;
+    z-index: 10;
+    pointer-events: none;
+    animation: float 4s linear forwards;
+}
+
+@keyframes float {
+    0% {
+        transform: translateY(0) rotate(0);
+        opacity: 1;
+    }
+
+    100% {
+        transform: translateY(-110vh) rotate(360deg);
+        opacity: 0;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<!-- RANDOM DOODLES -->
+
+<div class="doodle d1">♡</div>
+<div class="doodle d2">✦</div>
+<div class="doodle d3">♡</div>
+<div class="doodle d4">✧</div>
+<div class="doodle d5">♥</div>
+<div class="doodle d6">☆</div>
+
+
+<!-- QUESTION 1 -->
+
+<div class="card" id="stage1">
+
+    <h1>heyyy you 👀</h1>
+
+    <p>do u like me? 💗</p>
+
+    <button id="yes" onclick="stage2()">
+        yes 💕
+    </button>
+
+    <button id="no" onmouseover="escapeNo('no')">
+        no 😭
+    </button>
+
+</div>
+
+
+<!-- MESSAGE 1 -->
+
+<div class="card" id="stage2" style="display:none">
+
+    <h1>i like u too 😭💗</h1>
+
+    <p>hehehe... I was hoping you'd say yes ♡</p>
+
+    <button id="continue" onclick="stage3()">
+        continue 👀
+    </button>
+
+</div>
+
+
+<!-- QUESTION 2 -->
+
+<div class="card" id="stage3" style="display:none">
+
+    <h1>okayyy one more thing...</h1>
+
+    <p>will u be my boyfriend? 💗</p>
+
+    <button id="yes2" onclick="stage4()">
+        YESSS 💕
+    </button>
+
+    <button id="no2" onmouseover="escapeNo('no2')">
+        no 😭
+    </button>
+
+</div>
+
+
+<!-- FINAL -->
+
+<div class="card" id="stage4" style="display:none">
+
+    <div class="final">
+        YAYYY BBG 💗
+    </div>
+
+    <p>MWAHHHH 💋💋</p>
+
+    <p>hehe you're mine now ♡</p>
+
+</div>
+
+
+<script>
+
+function hideAll() {
+    document.getElementById("stage1").style.display = "none";
+    document.getElementById("stage2").style.display = "none";
+    document.getElementById("stage3").style.display = "none";
+    document.getElementById("stage4").style.display = "none";
+}
+
+function stage2() {
+    hideAll();
+    document.getElementById("stage2").style.display = "block";
+}
+
+function stage3() {
+    hideAll();
+    document.getElementById("stage3").style.display = "block";
+}
+
+function stage4() {
+    hideAll();
+    document.getElementById("stage4").style.display = "block";
+
+    makeHearts();
+}
+
+function escapeNo(id) {
+
+    const button = document.getElementById(id);
+
+    const x =
+        Math.random() *
+        (window.innerWidth - button.offsetWidth - 20);
+
+    const y =
+        Math.random() *
+        (window.innerHeight - button.offsetHeight - 20);
+
+    button.style.left = x + "px";
+    button.style.top = y + "px";
+}
+
+function makeHearts() {
+
+    for (let i = 0; i < 60; i++) {
+
+        const heart = document.createElement("div");
+
+        heart.className = "heart";
+
+        const hearts = ["💗", "💕", "♡", "♥", "💖"];
+
+        heart.innerHTML =
+            hearts[Math.floor(Math.random() * hearts.length)];
+
+        heart.style.left =
+            Math.random() * 100 + "vw";
+
+        heart.style.top =
+            (100 + Math.random() * 20) + "vh";
+
+        heart.style.fontSize =
+            (18 + Math.random() * 30) + "px";
+
+        heart.style.animationDuration =
+            (3 + Math.random() * 3) + "s";
+
+        document.body.appendChild(heart);
+
+        setTimeout(() => heart.remove(), 6000);
+    }
+}
+
+</script>
+
+</body>
+</html>
