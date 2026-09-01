@@ -1,4 +1,3 @@
-```javascript
 const CACHE_NAME =
     "void-solitaire-v2";
 
@@ -93,4 +92,4 @@ self.addEventListener(
 
     }
 );
-```
+
