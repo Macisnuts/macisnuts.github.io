@@ -1,0 +1,17 @@
+```json
+{
+    "name": "VOID // SOLITAIRE",
+    "short_name": "VOID",
+    "description": "A dark futuristic Klondike Solitaire game with UNIT-01.",
+    "start_url": "./",
+    "scope": "./",
+    "display": "standalone",
+    "background_color": "#040405",
+    "theme_color": "#040405",
+    "orientation": "portrait",
+    "categories": [
+        "games",
+        "entertainment"
+    ]
+}
+```
