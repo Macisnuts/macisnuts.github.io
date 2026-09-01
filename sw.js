@@ -1,5 +1,5 @@
 const CACHE_NAME =
-    "void-solitaire-v2";
+    "void-solitaire-v3";
 
 const FILES = [
     "./",
